@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <script type="text/javascript">
+            var ws;
+            function sendJSON()
+            {
+                if ("WebSocket" in window)
+                {
+                    // Construct a msg object containing the data the server needs to process the message from the chat client.
+                    var author = {"authors": [
+                            {"authorLast": document.getElementById("authorId").value,
+                                "date": Date.now()
+                            }
+                        ]
+                    };
+                    if (ws == null) {
+                        ws = new WebSocket("ws://localhost:8080/JavaEERecipes/bookEndpoint");
+                    } else {
+                        alert("sending message");
+                        ws.send(JSON.stringify(author));
+                    }
+                    ws.onopen = function()
+                    {
+                        // Web Socket is connected, send data using send()
+                        ws.send(JSON.stringify(author));
+                        alert("sending message again");
+                    };
+                    ws.onmessage = function(evt)
+                    {
+                        alert(JSON.stringify(evt.data));
+                        var f = document.getElementById("serverMessge").contentDocument;
+                        var message = JSON.stringify(evt.data);
+                        var ul = "";
+                        
+                        ul += message;
+
+                        f.innerHTML = ul;
+       
+                    };
+                    ws.onclose = function()
+                    {
+                        // websocket is closed.
+                        alert("Connection is closed...");
+                    };
+                }
+                else
+                {
+                    // The browser doesn't support WebSocket
+                    alert("WebSocket NOT supported by your Browser!");
+                }
+            }
+            function closeConnection() {
+                if (ws !== null) {
+                    ws.close();
+                    ws = null;
+                }
+            }
+
+        </script>
+    </h:head>
+    <h:body>
+        <h:form>
+            Click "Send Book List button to find books by the chosen author.
+            <br/>
+            <select id = "authorId">
+                <option value = "BEATY">Mark Beaty</option>
+                <option value = "DEA">Carl Dea</option>
+                <option value = "JUNEAU">Josh Juneau</option>
+                <option value = "OCONNER">John O'Conner</option>
+            </select>
+            <input id="wsRelay" type="button" value="Send Book List"
+                   onclick="sendJSON();"/>
+            <br/><br/>
+            <label for="serverMessage">Server Message:</label>
+            <textarea id="serverMessage" rows="10" cols="20"/>
+
+        </h:form>
+    </h:body>
+
+</html>

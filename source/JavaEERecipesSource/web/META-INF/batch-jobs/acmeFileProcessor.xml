@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job id="myJob" xmlns="http://batch.jsr352/jsl">
+    <step id="readingStep" >
+        <chunk item-count="2">
+            <reader ref="acmeReader"></reader> 
+            <processor ref="acmeProcessor"></processor>     
+        </chunk>	
+    </step>
+    <step id="writingStep" >
+        <chunk item-count="1">
+            <writer ref="acmeWriter"></writer>   
+        </chunk>	
+    </step>
+</job>

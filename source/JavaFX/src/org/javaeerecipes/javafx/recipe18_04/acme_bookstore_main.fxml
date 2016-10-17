@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0"
+            fx:controller="org.javaeerecipes.javafx.recipe18_04.AcmeBookstoreMainController"
+            xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <BorderPane prefHeight="399.9999000000025" prefWidth="800.0">
+      <center>
+        <VBox prefHeight="300.0" prefWidth="600.0">
+          <children>
+            <Label text="Acme Bookstore" />
+            <TabPane prefHeight="200.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Book Listing">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="700.0">
+                      <children>
+                        <TableView fx:id="tableView"/>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Other Stuff">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </VBox>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      template="./layout/custom_template.xhtml">
+    <head jsf:id="head">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    </head>
+    <body jsf:id="body" prependId="false">
+
+        <form jsf:id="form">
+            <details jsf:id="outputMessage">
+                <summary>Message</summary>
+                <p>#{ajaxBean.status}</p>
+            </details>
+            <input type="text" jsf:id="value1" value="#{ajaxBean.value1}">
+                <f:ajax execute="@this"/>
+            </input>
+            <br/><br/>
+            <input type="text" jsf:id="value2" value="#{ajaxBean.value2}">
+                <f:ajax execute="@this"/>
+            </input>
+            <br/>
+            <br/>
+
+            <input type="submit" jsf:id="status" jsf:value="#{ajaxBean.status}"
+                   jsf:action="#{ajaxBean.process()}" value="Process">
+                <f:ajax execute="@this" render="outputMessage"/>
+            </input>
+
+        </form>
+    </body>
+</html>

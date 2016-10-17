@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="org.javaeerecipes.javafx.recipe18_05.RESTfulClientController">
+  <children>
+    <BorderPane prefHeight="69.0" prefWidth="661.0">
+      <bottom>
+        <Label text="JavaFX Rest Sample" />
+      </bottom>
+      <center>
+        <VBox prefHeight="190.0" prefWidth="800.0">
+          <children>
+            <Label fx:id="clientLabel" text="Acme Bookstore" />
+            <Button mnemonicParsing="false" onAction="#obtainRestText" text="Get REST Text" />
+          </children>
+        </VBox>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Book:  Java EE7 Recipes
+Recipe: 4-2
+Author: J. Juneau
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Recipe 4-1: Facelets Page Template</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./layout/custom_template_search.xhtml">
+
+            <ui:define name="top">
+
+            </ui:define>
+
+            <ui:define name="left">
+
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="componentForm">
+                    <h1>#{completeAuthorController.current.first} #{completeAuthorController.current.last}</h1>
+                    <p>
+                        <h:graphicImage id="java7recipes" style="width: 100px; height: 120px" library="image" name="java7recipes.png"/>
+                        <br/>
+                        #{completeAuthorController.current.bio}
+                    </p>
+                </h:form>    
+            </ui:define>
+
+            <ui:define name="bottom">
+                bottom
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>

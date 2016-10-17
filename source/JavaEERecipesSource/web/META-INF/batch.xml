@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch-artifacts xmlns="http://jcp.org.batch/jsl">
+    <ref id="acmeReader" class="org.javaeerecipes.chapter19.recipe19_07.AcmeReader"/>
+    <ref id="acmeProcessor" class="org.javaeerecipes.chapter19.recipe19_07.AcmeProcessor"/>
+    <ref id="acmeWriter" class="org.javaeerecipes.chapter19.recipe19_07.AcmeWriter"/>
+</batch-artifacts>

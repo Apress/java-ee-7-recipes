@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="JavaEERecipesFXPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>org.javaeerecipes.javafx.entity.Book</class>
+    <class>org.javaeerecipes.javafx.entity.AuthorWork</class>
+    <class>org.javaeerecipes.javafx.entity.BookAuthor</class>
+    <class>org.javaeerecipes.javafx.entity.Chapter</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@host:port:db"/>
+      <property name="javax.persistence.jdbc.password" value="password"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.user" value="user"/>
+    </properties>
+  </persistence-unit>
+</persistence>

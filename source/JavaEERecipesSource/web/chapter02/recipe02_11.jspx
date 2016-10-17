@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : recipe02_11
+    Created on : Apr 30, 2013, 12:13:07 PM
+    Author     : Juneau
+-->
+<!--
+    Document   : recipe02_11
+    Author     : juneau
+-->
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      version="2.0">
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <head>
+        <title>Recipe 2-11: Creating an Input Form</title>
+    </head>
+    <body>
+        <h1>Recipe Input Form</h1>
+        <p>
+            Please insert recipe details using the text fields below.
+        </p>
+        ${ recipeBean.message }
+        <form method="POST" action="/JavaEERecipes/RecipeServlet">
+            Recipe Number: <input id="recipeNumber" name="recipeNumber" size="30"/>
+            <br/>
+            Recipe Name: <input id="name" name="name" size="30"/>
+            <br/>
+            Recipe Description: <input id="description" name="description" size="30"/>
+            <br/>
+            Recipe Text: <input id="text" name="text" size="30"/>
+            <br/>
+<br/>
+            <input type="submit"/>
+        </form>
+    </body>
+</html>
